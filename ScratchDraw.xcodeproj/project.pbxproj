@@ -14,6 +14,7 @@
 		916592E31B04D6FA00C38115 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916592E11B04D6FA00C38115 /* LaunchScreen.xib */; };
 		916592EF1B04D6FA00C38115 /* ScratchDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916592EE1B04D6FA00C38115 /* ScratchDrawTests.swift */; };
 		916592F91B04D9E800C38115 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916592F81B04D9E800C38115 /* ScratchView.swift */; };
+		916592FB1B062AB400C38115 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916592FA1B062AB400C38115 /* ColorCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		916592ED1B04D6FA00C38115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916592EE1B04D6FA00C38115 /* ScratchDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchDrawTests.swift; sourceTree = "<group>"; };
 		916592F81B04D9E800C38115 /* ScratchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
+		916592FA1B062AB400C38115 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				916592DA1B04D6FA00C38115 /* ViewController.swift */,
 				916592F81B04D9E800C38115 /* ScratchView.swift */,
+				916592FA1B062AB400C38115 /* ColorCell.swift */,
 				916592DC1B04D6FA00C38115 /* Main.storyboard */,
 				916592D61B04D6FA00C38115 /* Supporting Files */,
 			);
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				916592DB1B04D6FA00C38115 /* ViewController.swift in Sources */,
+				916592FB1B062AB400C38115 /* ColorCell.swift in Sources */,
 				916592D91B04D6FA00C38115 /* AppDelegate.swift in Sources */,
 				916592F91B04D9E800C38115 /* ScratchView.swift in Sources */,
 			);

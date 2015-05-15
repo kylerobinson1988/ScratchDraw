@@ -36,11 +36,16 @@ class ScratchView: UIView {
                         
                         for point in scratch.points {
                             
+                            CGContextSetLineWidth(context, CGFloat(scratch.strokeSize))
                             CGContextAddLineToPoint(context, point.x, point.y)
                         
                         }
                         
+                       
+//                        CGContextFillPath(context)
                         CGContextStrokePath(context)
+                        
+                        
                         
                     }
                     
@@ -55,10 +60,15 @@ class ScratchView: UIView {
     
     func newScratchWithStartPoint(point: CGPoint) {
         
+        
         var scratch = Scratch()
         scratch.points = [point,point]
         
+        
         scratch.strokeColor = currentColor
+        scratch.fillColor = currentColor
+        scratch.strokeSize = publicSliderSetting
+
         
         scratches.append(scratch)
         setNeedsDisplay()
@@ -95,7 +105,7 @@ class Scratch {
         var points: [CGPoint] = []
         var fillColor: UIColor?
         var strokeColor: UIColor?
-        var strokeSize: Double = 0
+        var strokeSize: Double = 5.0
     
     // line dash
         
