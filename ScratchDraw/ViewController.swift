@@ -8,13 +8,18 @@
 
 import UIKit
 
+var publicSliderSetting = 0.0
+
 class ViewController: UIViewController {
 
-    
+    enum isStrokeFill {
+        
+        case Stroke
+        case Fill
  
+    }
     
-    
-   
+//    var strokeOrFill: isStrokeFill.Stroke
     
     
     
@@ -79,12 +84,12 @@ class ViewController: UIViewController {
     
     @IBAction func undoLine(sender: AnyObject) {
         
-        println("Scratches count \(scratchPad.scratches.count)")
+//        println("Scratches count \(scratchPad.scratches.count)")
         
         if scratchPad.scratches.count > 0 {
         
             var removedLine = scratchPad.scratches.removeLast()
-            println("Removed line \(removedLine.points.count)")
+//            println("Removed line \(removedLine.points.count)")
             scratchPad.setNeedsDisplay()
             
         }
@@ -99,8 +104,26 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func strokeFillSegment(sender: AnyObject) {
+        
+        var strokeTrueFillFalse = true
+         
+        
+            
+        }
+        
+    @IBAction func thicknessSlider(sender: UISlider) {
+        
+        
+            var sliderSetting = sender.value
+        publicSliderSetting = Double(sliderSetting)
+        
+
+        
+        
+    
     
 
-
+    }
 }
 

@@ -13,14 +13,18 @@ class ScratchView: UIView {
     
     var scratches: [Scratch] = []
     var currentColor = UIColor.blackColor()
-
+//    var linesize = 5.0
     
     override func drawRect(rect: CGRect) {
         
         var context = UIGraphicsGetCurrentContext()
         
-        CGContextSetLineWidth(context, 5.0)
+        CGContextSetLineWidth(context, CGFloat(5.0))
         CGContextSetLineCap(context, kCGLineCapRound)
+        
+//        myCGColor = CGColor
+        
+//        CGCOntextSetfillColorWithColor(context, currentColor)
         
         UIColor.blackColor()
         
@@ -28,21 +32,44 @@ class ScratchView: UIView {
                 
                 if let firstPoint = scratch.points.first {
                     
-                    if let strokeColor = scratch.strokeColor {
+                    
+                    
+                    if let fillColor = scratch.strokeColor {
                         
-                        strokeColor.set()
+                        fillColor.set()
                         
                         CGContextMoveToPoint(context, firstPoint.x, firstPoint.y)
                         
                         for point in scratch.points {
                             
+                            CGContextSetLineWidth(context, CGFloat(scratch.strokeSize))
                             CGContextAddLineToPoint(context, point.x, point.y)
                         
                         }
                         
-                        CGContextStrokePath(context)
+                        CGContextFillPath(context)
                         
+//                    }
+//                
+//                    if let strokeColor = scratch.strokeColor {
+//                        
+//                        strokeColor.set()
+//                        
+//                        CGContextMoveToPoint(context, firstPoint.x, firstPoint.y)
+//                        
+//                        for point in scratch.points {
+//                            
+//                            CGContextSetLineWidth(context, CGFloat(scratch.strokeSize))
+//                            CGContextAddLineToPoint(context, point.x, point.y)
+//                            
+//                        }
+//                        
+//                        CGContextStrokePath(context)
+//                        
                     }
+
+                    
+                    
                     
                 }
                 
@@ -58,7 +85,9 @@ class ScratchView: UIView {
         var scratch = Scratch()
         scratch.points = [point,point]
         
+        scratch.strokeSize = publicSliderSetting
         scratch.strokeColor = currentColor
+        scratch.fillColor = currentColor
         
         scratches.append(scratch)
         setNeedsDisplay()
@@ -79,7 +108,7 @@ class ScratchView: UIView {
     }
     
     func addPointToCurrentScratch(point: CGPoint) {
-
+        
         if scratches.count > 0 {
 
             scratches[scratches.count - 1 ].points.append(point)
