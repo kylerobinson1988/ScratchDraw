@@ -61,6 +61,9 @@
                                                     <segment title="Stroke"/>
                                                     <segment title="Fill"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="strokeTrueFillFalse:" destination="BYZ-38-t0r" eventType="valueChanged" id="Gsp-98-Na1"/>
+                                                </connections>
                                             </segmentedControl>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="529-8H-MJi">
                                                 <rect key="frame" x="6" y="90" width="118" height="31"/>
@@ -102,7 +105,7 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nDZ-Kw-1Ua">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nDZ-Kw-1Ua" customClass="StrokeCollectionView" customModule="ScratchDraw" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="140" width="600" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="Ggw-b4-ixZ"/>
@@ -203,6 +206,7 @@
                     <connections>
                         <outlet property="fillColorCollectionView" destination="xmJ-wv-riP" id="EJd-Ec-vwe"/>
                         <outlet property="scratchPad" destination="st6-9Z-DMK" id="P3U-Tk-tpC"/>
+                        <outlet property="segmentOutlet" destination="50W-yM-isS" id="MXQ-1d-vHn"/>
                         <outlet property="strokeColorCollectionView" destination="nDZ-Kw-1Ua" id="FQl-NX-ioe"/>
                         <outlet property="viewBottomConstraint" destination="nDt-Wi-OhR" id="7mW-7Z-NTJ"/>
                     </connections>

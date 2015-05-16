@@ -34,6 +34,7 @@ var strokeColors: [UIColor] = [
 ]
 
 var publicSliderSetting = 5.0
+var publicStrokeTrueFillFalse = true
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -77,6 +78,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
         }
         
+
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -94,12 +97,20 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         return cell1
         
-//        let cell2 = collectionView.dequeueReusableCellWithReuseIdentifier("colorCell2", forIndexPath: indexPath) as! ColorCell2
-//        
-//        cell2.backgroundColor = fillColors[indexPath.item]
-//        
-//        return cell2
     }
+    
+        func collectionView2(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+            
+                    let cell2 = collectionView.dequeueReusableCellWithReuseIdentifier("colorCell2", forIndexPath: indexPath) as! ColorCell2
+            
+                    cell2.backgroundColor = fillColors[indexPath.item]
+            
+                    return cell2
+            
+        }
+        
+
+    
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         
@@ -176,6 +187,32 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         var sliderSetting = sender.value
         publicSliderSetting = Double(sliderSetting)
+    }
+    
+    
+    @IBOutlet weak var segmentOutlet: UISegmentedControl!
+    
+    @IBAction func strokeTrueFillFalse(sender: UISegmentedControl) {
+        
+      
+        
+        switch segmentOutlet.selectedSegmentIndex {
+            
+        case 0:
+            
+            publicStrokeTrueFillFalse = true
+            println("Stroke mode")
+            
+        case 1:
+            
+            publicStrokeTrueFillFalse = false
+            println("Fill mode")
+            
+        default:
+            
+            break
+            
+        }
     }
     
 
