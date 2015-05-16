@@ -13,7 +13,7 @@ class ScratchView: UIView {
     
     var scratches: [Scratch] = []
     var currentColor = UIColor.blackColor()
-
+//    var shapeType = 
     
     override func drawRect(rect: CGRect) {
         

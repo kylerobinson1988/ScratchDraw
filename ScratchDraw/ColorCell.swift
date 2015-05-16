@@ -8,7 +8,14 @@
 
 import UIKit
 
-class ColorCell: UICollectionViewCell {
+class ColorCell1: UICollectionViewCell {
+    @IBAction func selectColor(sender: UIButton) {
+    }
+    @IBOutlet weak var colorButton: UIButton!
+    
+}
+
+class ColorCell2: UICollectionViewCell {
     @IBAction func selectColor(sender: UIButton) {
     }
     @IBOutlet weak var colorButton: UIButton!

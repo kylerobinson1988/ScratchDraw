@@ -17,6 +17,19 @@ var fillColors: [UIColor] = [
     UIColor.greenColor(),
     UIColor.blueColor(),
     UIColor.cyanColor(),
+    UIColor.purpleColor()
+]
+
+var strokeColors: [UIColor] = [
+
+    UIColor.blackColor(),
+    UIColor.grayColor(),
+    UIColor.redColor(),
+    UIColor.orangeColor(),
+    UIColor.yellowColor(),
+    UIColor.greenColor(),
+    UIColor.blueColor(),
+    UIColor.cyanColor(),
     UIColor.purpleColor(),
 ]
 
@@ -27,7 +40,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
  
-    @IBOutlet weak var fillColorCollectionView: UICollectionView!
+    @IBOutlet weak var fillColorCollectionView: FillCollectionView!
+    
+    @IBOutlet weak var strokeColorCollectionView: UICollectionView!
     
     @IBOutlet weak var scratchPad: ScratchView!
     
@@ -36,6 +51,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         fillColorCollectionView.dataSource = self
         fillColorCollectionView.delegate = self
+        
+        strokeColorCollectionView.dataSource = self
+        strokeColorCollectionView.delegate = self
+        
+        
         
         viewBottomConstraint.constant = -300
         
@@ -49,9 +69,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ColorCell
+        let cell1 = collectionView.cellForItemAtIndexPath(indexPath) as! ColorCell1
         
-        if let color = cell.backgroundColor {
+        if let color = cell1.backgroundColor {
             
             scratchPad.currentColor = color
             
@@ -61,19 +81,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-            return fillColors.count
+//            return fillColors.count
+            return strokeColors.count
     
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("colorCell", forIndexPath: indexPath) as! ColorCell
+        let cell1 = collectionView.dequeueReusableCellWithReuseIdentifier("colorCell1", forIndexPath: indexPath) as! ColorCell1
         
-        cell.backgroundColor = fillColors[indexPath.item]
+        cell1.backgroundColor = strokeColors[indexPath.item]
         
-        return cell
+        return cell1
         
-        
+//        let cell2 = collectionView.dequeueReusableCellWithReuseIdentifier("colorCell2", forIndexPath: indexPath) as! ColorCell2
+//        
+//        cell2.backgroundColor = fillColors[indexPath.item]
+//        
+//        return cell2
     }
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

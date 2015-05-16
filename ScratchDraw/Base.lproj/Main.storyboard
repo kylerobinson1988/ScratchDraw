@@ -23,26 +23,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBo-li-Krl">
                                         <rect key="frame" x="0.0" y="300" width="600" height="300"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nDZ-Kw-1Ua">
-                                                <rect key="frame" x="0.0" y="220" width="600" height="80"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CpY-vY-pCK">
-                                                    <size key="itemSize" width="70" height="70"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="5"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="fEK-I4-pZV" customClass="ColorCell" customModule="ScratchDraw" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        </view>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCO-LS-2Xh">
                                                 <rect key="frame" x="94" y="8" width="78" height="45"/>
                                                 <color key="backgroundColor" red="0.60658169750000002" green="0.3307404223" blue="0.97254997489999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,8 +55,8 @@
                                                     <action selector="clearLines:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nxa-17-aAd"/>
                                                 </connections>
                                             </button>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="50W-yM-isS">
-                                                <rect key="frame" x="198" y="17" width="123" height="29"/>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="50W-yM-isS">
+                                                <rect key="frame" x="198" y="17" width="109" height="29"/>
                                                 <segments>
                                                     <segment title="Stroke"/>
                                                     <segment title="Fill"/>
@@ -102,27 +82,80 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xmJ-wv-riP" customClass="FillCollectionView" customModule="ScratchDraw" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="220" width="600" height="80"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="80q-Rz-tFv">
+                                                    <size key="itemSize" width="70" height="70"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell1" id="arc-4l-FvI" customClass="ColorCell1" customModule="ScratchDraw" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nDZ-Kw-1Ua">
+                                                <rect key="frame" x="0.0" y="140" width="600" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="Ggw-b4-ixZ"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CpY-vY-pCK">
+                                                    <size key="itemSize" width="70" height="70"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell1" id="fEK-I4-pZV" customClass="ColorCell1" customModule="ScratchDraw" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.72918639520202011" green="0.72918639520202011" blue="0.72918639520202011" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="HCO-LS-2Xh" firstAttribute="leading" secondItem="3eq-5p-Tw3" secondAttribute="trailing" constant="8" id="2Zw-Nc-krW"/>
                                             <constraint firstItem="3eq-5p-Tw3" firstAttribute="top" secondItem="fBo-li-Krl" secondAttribute="top" constant="8" id="4rC-ZH-MCb"/>
                                             <constraint firstItem="cDS-QO-RsY" firstAttribute="leading" secondItem="fBo-li-Krl" secondAttribute="leading" constant="8" id="8AW-t4-vl3"/>
-                                            <constraint firstAttribute="trailing" secondItem="nDZ-Kw-1Ua" secondAttribute="trailing" id="Ffa-am-Xiv"/>
+                                            <constraint firstAttribute="trailing" secondItem="nDZ-Kw-1Ua" secondAttribute="trailing" id="FBx-pS-Ba4"/>
+                                            <constraint firstItem="xmJ-wv-riP" firstAttribute="leading" secondItem="fBo-li-Krl" secondAttribute="leading" id="IOK-1i-8Ne"/>
                                             <constraint firstAttribute="bottom" secondItem="nDZ-Kw-1Ua" secondAttribute="bottom" id="JDn-Zd-sda"/>
+                                            <constraint firstAttribute="bottom" secondItem="xmJ-wv-riP" secondAttribute="bottom" id="L74-qF-A8u"/>
                                             <constraint firstItem="50W-yM-isS" firstAttribute="top" secondItem="fBo-li-Krl" secondAttribute="top" constant="17" id="OSb-Wf-Ogf"/>
                                             <constraint firstItem="529-8H-MJi" firstAttribute="top" secondItem="cDS-QO-RsY" secondAttribute="bottom" constant="8" id="Ofz-qt-9sq"/>
                                             <constraint firstItem="529-8H-MJi" firstAttribute="leading" secondItem="fBo-li-Krl" secondAttribute="leading" constant="8" id="Oyg-zf-KV8"/>
+                                            <constraint firstItem="xmJ-wv-riP" firstAttribute="top" secondItem="nDZ-Kw-1Ua" secondAttribute="bottom" id="T9K-hl-V6U"/>
+                                            <constraint firstItem="nDZ-Kw-1Ua" firstAttribute="top" secondItem="529-8H-MJi" secondAttribute="bottom" constant="20" id="TG3-ko-3U6"/>
+                                            <constraint firstItem="nDZ-Kw-1Ua" firstAttribute="leading" secondItem="fBo-li-Krl" secondAttribute="leading" id="UOd-wl-Qdr"/>
                                             <constraint firstItem="cDS-QO-RsY" firstAttribute="top" secondItem="3eq-5p-Tw3" secondAttribute="bottom" constant="8" id="dVa-Oj-gzV"/>
                                             <constraint firstItem="HCO-LS-2Xh" firstAttribute="top" secondItem="fBo-li-Krl" secondAttribute="top" constant="8" id="fef-eV-uZx"/>
-                                            <constraint firstItem="nDZ-Kw-1Ua" firstAttribute="leading" secondItem="fBo-li-Krl" secondAttribute="leading" id="hMs-ae-2uq"/>
+                                            <constraint firstItem="xmJ-wv-riP" firstAttribute="top" secondItem="nDZ-Kw-1Ua" secondAttribute="bottom" id="g03-AJ-Sly"/>
                                             <constraint firstItem="50W-yM-isS" firstAttribute="leading" secondItem="HCO-LS-2Xh" secondAttribute="trailing" constant="26" id="kVm-in-IZZ"/>
                                             <constraint firstAttribute="height" constant="300" id="pZV-XH-weO"/>
-                                            <constraint firstItem="nDZ-Kw-1Ua" firstAttribute="top" secondItem="529-8H-MJi" secondAttribute="bottom" constant="100" id="xOO-gx-F6q"/>
+                                            <constraint firstAttribute="trailing" secondItem="xmJ-wv-riP" secondAttribute="trailing" id="wCr-k8-mIG"/>
                                             <constraint firstItem="3eq-5p-Tw3" firstAttribute="leading" secondItem="fBo-li-Krl" secondAttribute="leading" constant="8" id="xth-QA-qg2"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="JDn-Zd-sda"/>
+                                            </mask>
+                                        </variation>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-VG-6r8">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-VG-6r8">
                                         <rect key="frame" x="8" y="262" width="46" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="BcF-cC-HhI"/>
@@ -140,6 +173,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="fBo-li-Krl" firstAttribute="top" secondItem="I3b-VG-6r8" secondAttribute="bottom" constant="8" id="0oe-o1-1Tr"/>
+                                    <constraint firstItem="I3b-VG-6r8" firstAttribute="leading" secondItem="st6-9Z-DMK" secondAttribute="leadingMargin" id="UUH-2j-Siw"/>
                                     <constraint firstAttribute="trailing" secondItem="fBo-li-Krl" secondAttribute="trailing" id="Z6g-9s-bgE"/>
                                     <constraint firstItem="fBo-li-Krl" firstAttribute="leading" secondItem="st6-9Z-DMK" secondAttribute="leading" id="kZo-hv-OER"/>
                                     <constraint firstAttribute="bottom" secondItem="fBo-li-Krl" secondAttribute="bottom" id="nDt-Wi-OhR"/>
@@ -167,8 +201,9 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="fillColorCollectionView" destination="nDZ-Kw-1Ua" id="vGI-Qe-ivX"/>
+                        <outlet property="fillColorCollectionView" destination="xmJ-wv-riP" id="EJd-Ec-vwe"/>
                         <outlet property="scratchPad" destination="st6-9Z-DMK" id="P3U-Tk-tpC"/>
+                        <outlet property="strokeColorCollectionView" destination="nDZ-Kw-1Ua" id="FQl-NX-ioe"/>
                         <outlet property="viewBottomConstraint" destination="nDt-Wi-OhR" id="7mW-7Z-NTJ"/>
                     </connections>
                 </viewController>
