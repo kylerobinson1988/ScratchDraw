@@ -74,7 +74,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         if let color = cell1.backgroundColor {
             
-            scratchPad.currentColor = color
+            scratchPad.currentStrokeColor = color
             
         }
         
@@ -84,9 +84,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-//            return fillColors.count
             return strokeColors.count
     
+    }
+    
+    func collectionView2(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        //            return fillColors.count
+        return fillColors.count
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -99,16 +105,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
     }
     
-        func collectionView2(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-            
-                    let cell2 = collectionView.dequeueReusableCellWithReuseIdentifier("colorCell2", forIndexPath: indexPath) as! ColorCell2
-            
-                    cell2.backgroundColor = fillColors[indexPath.item]
-            
-                    return cell2
-            
-        }
-        
+//    func collectionView2(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+//            
+//        let cell2 = collectionView2.dequeueReusableCellWithReuseIdentifier("colorCell2", forIndexPath: indexPath) as! ColorCell2
+//            
+//        cell2.backgroundColor = fillColors[indexPath.item]
+//            
+//        return cell2
+//            
+//        }
+//    
 
     
 
@@ -213,6 +219,44 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             break
             
         }
+    }
+    
+    @IBOutlet weak var shapeSelectOutlet: UISegmentedControl!
+    
+    @IBAction func shapeSelectAction(sender: UISegmentedControl) {
+        
+        switch shapeSelectOutlet.selectedSegmentIndex {
+            
+        case 0:
+            
+            publicShapeType == ShapeType.Line
+            println("Line mode")
+            println("You selected line")
+    
+            
+        case 1:
+            
+            publicShapeType == ShapeType.Ellipse
+            println("Ellipse mode")
+            println("you selected ellipse.")
+
+            
+        case 2:
+            
+            publicShapeType == ShapeType.Rectangle
+            println("Rectangle mode")
+            println("you selected rectangle")
+
+            
+        default:
+            
+            break
+            
+        }
+        
+        
+        
+        
     }
     
 

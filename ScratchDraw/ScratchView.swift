@@ -8,55 +8,137 @@
 
 import UIKit
 
+enum ShapeType {
+    case Line
+    case Ellipse
+    case Rectangle
+}
+
+var publicShapeType = ShapeType.Line {
+    didSet {
+        
+    }
+}
+
 class ScratchView: UIView {
     
     
     var scratches: [Scratch] = []
-    var currentColor = UIColor.blackColor()
-//    var shapeType = 
+    var currentStrokeColor = UIColor.blackColor()
+    var currentFillColor = UIColor.blackColor()
+    var shapeType = publicShapeType
+
     
     override func drawRect(rect: CGRect) {
         
-        var context = UIGraphicsGetCurrentContext()
-        
-        CGContextSetLineWidth(context, 5.0)
-        CGContextSetLineCap(context, kCGLineCapRound)
-        
-        UIColor.blackColor()
-        
-        for scratch in scratches {
+            var context = UIGraphicsGetCurrentContext()
+            
+            CGContextSetLineWidth(context, 5.0)
+            CGContextSetLineCap(context, kCGLineCapRound)
+            
+            UIColor.blackColor()
+            
+            for scratch in scratches {
                 
-                if let firstPoint = scratch.points.first {
+                if publicStrokeTrueFillFalse == true {
                     
-                    if let strokeColor = scratch.strokeColor {
+                    if let firstPoint = scratch.points.first {
                         
-                        strokeColor.set()
-                        
-                        CGContextMoveToPoint(context, firstPoint.x, firstPoint.y)
-                        
-                        for point in scratch.points {
+                        if let strokeColor = scratch.strokeColor {
                             
-                            CGContextSetLineWidth(context, CGFloat(scratch.strokeSize))
-                            CGContextAddLineToPoint(context, point.x, point.y)
-                        
+                            strokeColor.set()
+                            
+                            CGContextMoveToPoint(context, firstPoint.x, firstPoint.y)
+                            
+                            for point in scratch.points {
+                                
+                               
+                                
+                                switch shapeType {
+
+                                case .Line:
+                                        
+                                    CGContextSetLineWidth(context, CGFloat(scratch.strokeSize))
+                                    CGContextAddLineToPoint(context, point.x, point.y)
+                                    println("I'm drawing a line")
+                                    
+                                case .Ellipse:
+                                    
+                                    CGContextAddArc(context, point.x, point.y, CGFloat(scratch.strokeSize), 0.0, CGFloat(M_PI * 2.0), 1)
+                                    println("I'm drawing a circle")
+                                    
+                                case .Rectangle:
+                                    
+                                    CGContextAddRect(context, rect)
+                                    println("I'm drawing a rectangle")
+                                    
+                              
+                                default:
+                                    
+                                    break
+                                    
+                                
+                            }
+                            
+                            CGContextStrokePath(context)
+                            
                         }
-                        
-                       
-//                        CGContextFillPath(context)
-                        CGContextStrokePath(context)
-                        
-                        
                         
                     }
                     
-                }
+                } else {
+                    
+                    if let firstPoint = scratch.points.first {
+                        
+                        if let fillColor = scratch.fillColor {
+                            
+                            fillColor.set()
+                            
+                            CGContextMoveToPoint(context, firstPoint.x, firstPoint.y)
+                            
+                            for point in scratch.points {
+                                
+                                switch shapeType {
+                                    
+                                case .Line:
+                                    
+                                    CGContextSetLineWidth(context, CGFloat(scratch.strokeSize))
+                                    CGContextAddLineToPoint(context, point.x, point.y)
+                                    println("I'm drawing a line")
+                                    
+                                case .Ellipse:
+                                    
+                                    CGContextAddArc(context, point.x, point.y, CGFloat(scratch.strokeSize), 0.0, CGFloat(M_PI * 2.0), 1)
+                                    println("I'm drawing a circle")
+                                    
+                                case .Rectangle:
+                                    
+                                    // What do i need for the second parameter below: rect: CGRect  ?
+                                    CGContextAddRect(context, rect)
+                                    println("I'm drawing a rectangle")
+                                    
+                                    //    CGContextAddLineToPoint(<#c: CGContext!#>, <#x: CGFloat#>, <#y: CGFloat#>)
+                                    //    CGContextAddRect(<#c: CGContext!#>, <#rect: CGRect#>)
+
+                                
+                            }
+                            
+                            CGContextFillPath(context)
+                            
+                            
+                            }
+                        
+                        }
+                    
+                    }
                 
-            }
+                }
             
-        }
+            }
         
+        }
     
-    
+    }
     
     func newScratchWithStartPoint(point: CGPoint) {
         
@@ -65,10 +147,10 @@ class ScratchView: UIView {
         scratch.points = [point,point]
         
         
-        scratch.strokeColor = currentColor
-        scratch.fillColor = currentColor
+        scratch.strokeColor = currentStrokeColor
+        scratch.fillColor = currentFillColor
         scratch.strokeSize = publicSliderSetting
-
+        
         
         scratches.append(scratch)
         setNeedsDisplay()
@@ -79,7 +161,7 @@ class ScratchView: UIView {
         
         if scratches.last != nil {
             
-           scratches[scratches.count - 1 ].points[1] = point
+            scratches[scratches.count - 1 ].points[1] = point
             setNeedsDisplay()
             
             
@@ -89,15 +171,16 @@ class ScratchView: UIView {
     }
     
     func addPointToCurrentScratch(point: CGPoint) {
-
+        
         if scratches.count > 0 {
-
+            
             scratches[scratches.count - 1 ].points.append(point)
             setNeedsDisplay()
-
+            
         }
-    
+        
     }
+    
 }
 
 class Scratch {
@@ -114,8 +197,6 @@ class Scratch {
     
     
 }
-
-
 
 
 

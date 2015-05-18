@@ -20,6 +20,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="st6-9Z-DMK" customClass="ScratchView" customModule="ScratchDraw" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-VG-6r8">
+                                        <rect key="frame" x="8" y="262" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="BcF-cC-HhI"/>
+                                            <constraint firstAttribute="height" constant="30" id="Hma-C2-wiS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="👻">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showHide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MAq-ZF-Rs5"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBo-li-Krl">
                                         <rect key="frame" x="0.0" y="300" width="600" height="300"/>
                                         <subviews>
@@ -66,7 +80,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="529-8H-MJi">
-                                                <rect key="frame" x="6" y="90" width="118" height="31"/>
+                                                <rect key="frame" x="6" y="102" width="118" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="myF-Jz-Bys"/>
                                                     <constraint firstAttribute="width" constant="114" id="skx-vq-I4d"/>
@@ -75,16 +89,6 @@
                                                     <action selector="lineThicknessSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="S1m-Qk-eEy"/>
                                                 </connections>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Line Thickness" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDS-QO-RsY">
-                                                <rect key="frame" x="8" y="61" width="115" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="115" id="QfS-zR-F2F"/>
-                                                    <constraint firstAttribute="height" constant="21" id="pxv-SL-Vv3"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xmJ-wv-riP" customClass="FillCollectionView" customModule="ScratchDraw" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="220" width="600" height="80"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="80q-Rz-tFv">
@@ -128,15 +132,43 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-Gg-t13">
+                                                <rect key="frame" x="130" y="66" width="177" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="177" id="32a-cb-hE6"/>
+                                                    <constraint firstAttribute="height" constant="28" id="oMg-R3-Ior"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Line"/>
+                                                    <segment title="Ellipse"/>
+                                                    <segment title="Rect"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="shapeSelectAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="HV9-Hj-abN"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Line Thickness" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDS-QO-RsY">
+                                                <rect key="frame" x="8" y="69" width="115" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="115" id="QfS-zR-F2F"/>
+                                                    <constraint firstAttribute="height" constant="21" id="pxv-SL-Vv3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.72918639520202011" green="0.72918639520202011" blue="0.72918639520202011" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="HCO-LS-2Xh" firstAttribute="leading" secondItem="3eq-5p-Tw3" secondAttribute="trailing" constant="8" id="2Zw-Nc-krW"/>
                                             <constraint firstItem="3eq-5p-Tw3" firstAttribute="top" secondItem="fBo-li-Krl" secondAttribute="top" constant="8" id="4rC-ZH-MCb"/>
                                             <constraint firstItem="cDS-QO-RsY" firstAttribute="leading" secondItem="fBo-li-Krl" secondAttribute="leading" constant="8" id="8AW-t4-vl3"/>
+                                            <constraint firstItem="DeD-Gg-t13" firstAttribute="top" secondItem="HCO-LS-2Xh" secondAttribute="bottom" constant="13" id="BNw-vv-Gpp"/>
                                             <constraint firstAttribute="trailing" secondItem="nDZ-Kw-1Ua" secondAttribute="trailing" id="FBx-pS-Ba4"/>
+                                            <constraint firstItem="cDS-QO-RsY" firstAttribute="top" secondItem="3eq-5p-Tw3" secondAttribute="bottom" constant="16" id="HuP-RM-2hg"/>
                                             <constraint firstItem="xmJ-wv-riP" firstAttribute="leading" secondItem="fBo-li-Krl" secondAttribute="leading" id="IOK-1i-8Ne"/>
                                             <constraint firstAttribute="bottom" secondItem="nDZ-Kw-1Ua" secondAttribute="bottom" id="JDn-Zd-sda"/>
+                                            <constraint firstItem="DeD-Gg-t13" firstAttribute="leading" secondItem="cDS-QO-RsY" secondAttribute="trailing" constant="7" id="KAh-St-PsE"/>
                                             <constraint firstAttribute="bottom" secondItem="xmJ-wv-riP" secondAttribute="bottom" id="L74-qF-A8u"/>
                                             <constraint firstItem="50W-yM-isS" firstAttribute="top" secondItem="fBo-li-Krl" secondAttribute="top" constant="17" id="OSb-Wf-Ogf"/>
                                             <constraint firstItem="529-8H-MJi" firstAttribute="top" secondItem="cDS-QO-RsY" secondAttribute="bottom" constant="8" id="Ofz-qt-9sq"/>
@@ -147,31 +179,23 @@
                                             <constraint firstItem="cDS-QO-RsY" firstAttribute="top" secondItem="3eq-5p-Tw3" secondAttribute="bottom" constant="8" id="dVa-Oj-gzV"/>
                                             <constraint firstItem="HCO-LS-2Xh" firstAttribute="top" secondItem="fBo-li-Krl" secondAttribute="top" constant="8" id="fef-eV-uZx"/>
                                             <constraint firstItem="xmJ-wv-riP" firstAttribute="top" secondItem="nDZ-Kw-1Ua" secondAttribute="bottom" id="g03-AJ-Sly"/>
+                                            <constraint firstItem="DeD-Gg-t13" firstAttribute="leading" secondItem="cDS-QO-RsY" secondAttribute="trailing" constant="7" id="hbS-IW-WLE"/>
                                             <constraint firstItem="50W-yM-isS" firstAttribute="leading" secondItem="HCO-LS-2Xh" secondAttribute="trailing" constant="26" id="kVm-in-IZZ"/>
+                                            <constraint firstItem="nDZ-Kw-1Ua" firstAttribute="top" secondItem="529-8H-MJi" secondAttribute="bottom" constant="8" id="oMO-lK-G0Q"/>
                                             <constraint firstAttribute="height" constant="300" id="pZV-XH-weO"/>
+                                            <constraint firstItem="529-8H-MJi" firstAttribute="top" secondItem="cDS-QO-RsY" secondAttribute="bottom" constant="12" id="rVE-JT-BCa"/>
                                             <constraint firstAttribute="trailing" secondItem="xmJ-wv-riP" secondAttribute="trailing" id="wCr-k8-mIG"/>
                                             <constraint firstItem="3eq-5p-Tw3" firstAttribute="leading" secondItem="fBo-li-Krl" secondAttribute="leading" constant="8" id="xth-QA-qg2"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="dVa-Oj-gzV"/>
+                                                <exclude reference="Ofz-qt-9sq"/>
                                                 <exclude reference="JDn-Zd-sda"/>
+                                                <exclude reference="TG3-ko-3U6"/>
                                             </mask>
                                         </variation>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-VG-6r8">
-                                        <rect key="frame" x="8" y="262" width="46" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="BcF-cC-HhI"/>
-                                            <constraint firstAttribute="height" constant="30" id="Hma-C2-wiS"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="👻">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showHide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MAq-ZF-Rs5"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -207,6 +231,7 @@
                         <outlet property="fillColorCollectionView" destination="xmJ-wv-riP" id="EJd-Ec-vwe"/>
                         <outlet property="scratchPad" destination="st6-9Z-DMK" id="P3U-Tk-tpC"/>
                         <outlet property="segmentOutlet" destination="50W-yM-isS" id="MXQ-1d-vHn"/>
+                        <outlet property="shapeSelectOutlet" destination="DeD-Gg-t13" id="tZq-Uq-FQ2"/>
                         <outlet property="strokeColorCollectionView" destination="nDZ-Kw-1Ua" id="FQl-NX-ioe"/>
                         <outlet property="viewBottomConstraint" destination="nDt-Wi-OhR" id="7mW-7Z-NTJ"/>
                     </connections>
