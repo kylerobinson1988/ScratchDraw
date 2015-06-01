@@ -101,6 +101,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         cell1.backgroundColor = strokeColors[indexPath.item]
         
+        cell1.layer.cornerRadius = 3
+        
         return cell1
         
     }
@@ -110,7 +112,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 //        let cell2 = collectionView2.dequeueReusableCellWithReuseIdentifier("colorCell2", forIndexPath: indexPath) as! ColorCell2
 //            
 //        cell2.backgroundColor = fillColors[indexPath.item]
-//            
+//        cell2.layer.cornerRadius = 3
 //        return cell2
 //            
 //        }
@@ -229,28 +231,29 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
         case 0:
             
-            publicShapeType == ShapeType.Line
+            scratchPad.shapeType = ShapeType.Line
             println("Line mode")
             println("You selected line")
     
             
         case 1:
             
-            publicShapeType == ShapeType.Ellipse
+            scratchPad.shapeType = ShapeType.Ellipse
             println("Ellipse mode")
             println("you selected ellipse.")
 
             
         case 2:
             
-            publicShapeType == ShapeType.Rectangle
+            scratchPad.shapeType = ShapeType.Rectangle
             println("Rectangle mode")
             println("you selected rectangle")
 
             
-        default:
+        case 3:
             
-            break
+            scratchPad.shapeType = ShapeType.Triangle
+            
             
         }
         

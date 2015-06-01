@@ -132,8 +132,8 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-Gg-t13">
-                                                <rect key="frame" x="130" y="66" width="177" height="29"/>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-Gg-t13">
+                                                <rect key="frame" x="130" y="66" width="210" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="177" id="32a-cb-hE6"/>
                                                     <constraint firstAttribute="height" constant="28" id="oMg-R3-Ior"/>
@@ -142,6 +142,7 @@
                                                     <segment title="Line"/>
                                                     <segment title="Ellipse"/>
                                                     <segment title="Rect"/>
+                                                    <segment title="Tri"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="shapeSelectAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="HV9-Hj-abN"/>
